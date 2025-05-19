@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villa Lulu: Tu Refugio de Tranquilidad en Cabo Frio</title>
+    <meta name="description" content="Descubre Villa Lulu, una encantadora posada en Cabo Frio. Habitaciones cómodas, piscina, desayuno casero y la mejor ubicación cerca de las playas. ¡Reserva ahora tu estancia ideal!">
+    <meta name="keywords" content="posada cabo frio, villa lulu, hospedaje cabo frio, habitaciones cabo frio, piscina cabo frio, playa do forte, descanso cabo frio, reserva posada cabo frio">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #F0E68C; /* Khaki - Warm and soft */
+            --secondary-color: #FAEBD7; /* Antique White - Light and cozy */
+            --text-color: #4F4A41; /* Dark brown - grounded */
+            --accent-color: #BDB76B; /* Dark Khaki - slightly darker accent */
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 1rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('path/to/your/main-hero-image.jpg') no-repeat center center/cover; /* Replace with your image */
+            filter: brightness(60%);
+            z-index: -1;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            margin-bottom: 0.5rem;
+            color: white; /* Ensure text is visible on dark background */
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 2rem;
+            color: white; /* Ensure text is visible on dark background */
+        }
+
+        .cta-buttons a {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-buttons a:hover {
+            background-color: #8B8000; /* Slightly darker khaki */
+        }
+
+        section {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            font-size: 2em;
+        }
+
+        .intro-text {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 1.1em;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .feature-item {
+            flex: 1 1 250px;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            min-width: 200px;
+        }
+
+        .feature-item i {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            margin-top: 0;
+            color: var(--text-color);
+        }
+
+        /* Rooms Section */
+        .room-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .room-item {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            flex: 1 1 300px;
+            max-width: 350px;
+        }
+
+        .room-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .room-content {
+            padding: 1.5rem;
+        }
+
+        .room-content h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        .amenities-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+
+        .amenities-list li {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .amenities-list li i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        /* Services Section */
+        .services-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .service-item {
+            flex: 1 1 200px;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .service-item i {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-item h3 {
+            margin: 0;
+            color: var(--text-color);
+        }
+
+        /* Location Section */
+        .location-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .location-map {
+            flex: 1 1 500px;
+            min-height: 400px;
+            background-color: #eee; /* Placeholder */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .location-description {
+            flex: 1 1 300px;
+        }
+
+        .location-description p {
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .contact-form-container,
+        .contact-info {
+            flex: 1 1 400px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        .contact-form button {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #8B8000;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .booking-link a {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .booking-link a:hover {
+            background-color: #8B8000;
+        }
+
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .hero h2 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .cta-buttons a {
+                display: block;
+                margin: 10px auto;
+                max-width: 200px;
+            }
+
+            .features, .room-gallery, .services-list, .location-content, .contact-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature-item, .room-item, .service-item, .location-map, .location-description, .contact-form-container, .contact-info {
+                flex-basis: auto;
+                width: 90%;
+                max-width: none;
+            }
+
+             .location-map {
+                 min-height: 300px;
+             }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Villa Lulu</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#rooms">Habitaciones</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#location">Ubicación</a></li>
+                <li><a href="#contact">Contacto y Reservas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h2>Villa Lulu: Tu Refugio de Tranquilidad en Cabo Frio</h2>
+        <p>Un oasis de paz y confort a pocos pasos de las mejores playas.</p>
+        <div class="cta-buttons">
+            <a href="#rooms">Ver Habitaciones</a>
+            <a href="#contact">Reservar Ahora</a>
+        </div>
+    </section>
+
+    <section>
+        <div class="intro-text">
+            <p>Bienvenido a Villa Lulu, tu destino ideal para una escapada relajante en la hermosa ciudad de Cabo Frio. Nuestra posada combina la calidez de un hogar con todas las comodidades para que tu estancia sea inolvidable. Disfruta de nuestras instalaciones, nuestra atención personalizada y la cercanía a las playas más famosas de la región.</p>
+        </div>
+
+        <h2>Nuestras Características Destacadas</h2>
+        <div class="features">
+            <div class="feature-item">
+                <i class="fas fa-swimming-pool"></i>
+                <h3>Piscina</h3>
+                <p>Relájate y refréscate en nuestra hermosa piscina rodeada de naturaleza.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-coffee"></i>
+                <h3>Desayuno Casero</h3>
+                <p>Comienza tu día con un delicioso desayuno preparado con ingredientes frescos.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-wifi"></i>
+                <h3>Wi-Fi Gratuito</h3>
+                <p>Mantente conectado con nuestra conexión Wi-Fi de alta velocidad en toda la posada.</p>
+            </div>
+             <div class="feature-item">
+                <i class="fas fa-umbrella-beach"></i>
+                <h3>Cerca de la Playa</h3>
+                <p>Estamos ubicados a poca distancia de las playas más bellas de Cabo Frio.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="rooms">
+        <h2>Nuestras Habitaciones</h2>
+        <div class="room-gallery">
+            <div class="room-item">
+                <img src="path/to/your/room1-image.jpg" alt="Habitación Estándar Villa Lulu"> <!-- Replace with your image -->
+                <div class="room-content">
+                    <h3>Habitación Estándar</h3>
+                    <p>Nuestras habitaciones estándar ofrecen un ambiente acogedor y todas las comodidades básicas para un descanso placentero.</p>
+                    <ul class="amenities-list">
+                        <li><i class="fas fa-bed"></i> Cama cómoda</li>
+                        <li><i class="fas fa-snowflake"></i> Aire acondicionado</li>
+                        <li><i class="fas fa-tv"></i> TV</li>
+                        <li><i class="fas fa-bath"></i> Baño privado</li>
+                    </ul>
+                     <!-- Add a gallery link if needed -->
+                </div>
+            </div>
+            <div class="room-item">
+                <img src="path/to/your/room2-image.jpg" alt="Habitación Premium Villa Lulu"> <!-- Replace with your image -->
+                <div class="room-content">
+                    <h3>Habitación Premium</h3>
+                    <p>Disfruta de más espacio y comodidades adicionales en nuestras habitaciones premium, ideales para una estancia más prolongada.</p>
+                     <ul class="amenities-list">
+                        <li><i class="fas fa-bed"></i> Cama King Size</li>
+                        <li><i class="fas fa-snowflake"></i> Aire acondicionado</li>
+                        <li><i class="fas fa-tv"></i> Smart TV</li>
+                        <li><i class="fas fa-bath"></i> Baño privado</li>
+                        <li><i class="fas fa-couch"></i> Área de descanso</li>
+                    </ul>
+                     <!-- Add a gallery link if needed -->
+                </div>
+            </div>
+            <!-- Add more room items as needed -->
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Nuestros Servicios</h2>
+        <div class="services-list">
+            <div class="service-item">
+                <i class="fas fa-concierge-bell"></i>
+                <h3>Recepción 24h</h3>
+                <p>Siempre listos para ayudarte en lo que necesites.</p>
+            </div>
+             <div class="service-item">
+                <i class="fas fa-bread-slice"></i>
+                <h3>Café da Manhã</h3>
+                <p>Delicioso desayuno incluido en tu estancia.</p>
+            </div>
+             <div class="service-item">
+                <i class="fas fa-parking"></i>
+                <h3>Estacionamiento</h3>
+                <p>Estacionamiento seguro para tu vehículo.</p>
+            </div>
+             <div class="service-item">
+                <i class="fas fa-leaf"></i>
+                <h3>Área Verde</h3>
+                <p>Disfruta de nuestros jardines y espacios exteriores.</p>
+            </div>
+             <!-- Add more service items as needed -->
+        </div>
+    </section>
+
+    <section id="location">
+        <h2>Ubicación</h2>
+        <div class="location-content">
+            <div class="location-map">
+                 <!-- Replace with your Google Maps iframe code -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1dXXXXXX!2dXXXXXX!3dXXXXXX!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967f5d5003584b%3A0x8171e67c3b578e1b!2sCabo%20Frio%2C%20RJ!5e0!3m2!1sen!2sbr!4vYOUR_API_KEY" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="location-description">
+                <p>Villa Lulu se encuentra estratégicamente ubicada en una zona tranquila y segura de Cabo Frio, a poca distancia de la famosa Praia do Forte y de otras playas encantadoras. Estamos rodeados de opciones gastronómicas, tiendas y con fácil acceso a las principales atracciones de la ciudad. ¡Explora Cabo Frio con la comodidad de estar cerca de todo!</p>
+                <p><strong>Dirección:</strong> [Tu Dirección Completa Aquí]</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contacto y Reservas</h2>
+        <div class="contact-content">
+            <div class="contact-form-container">
+                <p>¿Tienes alguna pregunta? Completa el formulario y nos pondremos en contacto contigo a la brevedad.</p>
+                <form class="contact-form" action="your_form_handler_script.php" method="POST"> <!-- Replace with your form handler -->
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+
+                    <button type="submit">Enviar Mensaje</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <p>También puedes contactarnos directamente:</p>
+                <p><i class="fas fa-phone"></i> [Tu Número de Teléfono]</p>
+                <p><i class="fas fa-envelope"></i> [Tu Email]</p>
+                <p><i class="fab fa-whatsapp"></i> [Tu Número de WhatsApp]</p>
+
+                <p>¿Listo para reservar tu estancia?</p>
+                <div class="booking-link">
+                    <a href="your_booking_system_link">Reservar Ahora</a> <!-- Replace with your booking system link -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Villa Lulu. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
